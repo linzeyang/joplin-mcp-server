@@ -1,0 +1,69 @@
+[project]
+name = "joplin-mcp-server"
+version = "0.1.0"
+description = "A Model Context Protocol (MCP) stdio server for Joplin, exposing Joplin's local REST API as MCP tools. Built with Python, uv, httpx, and FastMCP."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["fastmcp==2.8.0", "httpx==0.28.1"]
+license = { text = "MIT" }
+authors = [
+    { name = "Zeyang Lin", email = "4020306+linzeyang@users.noreply.github.com" },
+]
+keywords = ["joplin", "mcp", "server", "rest api", "notes", "python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+[project.urls]
+Homepage = "https://github.com/linzeyang/joplin-mcp-server"
+Documentation = "https://github.com/linzeyang/joplin-mcp-server#readme"
+
+[tool.uv]
+# Add uv-specific configuration here if needed
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.isort]
+py_version = 312
+profile = "black"
+
+[tool.pylint.format]
+max-line-length = "88"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["./tests/"]
+python_files = ["test_*.py"]
+console_output_style = "count"
+
+[tool.ruff]
+src = ["src"]
+line-length = 88
+target-version = "py312"
+output-format = "full"
+
+[tool.ruff.lint]
+select = ["B", "C", "E", "F", "I", "Q", "S", "W"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*.py" = ["S"]
+
+[tool.ty.environment]
+python-version = "3.12"
+
+[tool.ty.rules]
+missing-argument = "ignore"
+
+[tool.ty.src]
+root = "./src"
+
+[tool.ty.terminal]
+output-format = "full"
