@@ -1,26 +1,39 @@
 [project]
 name = "joplin-mcp-server"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Model Context Protocol (MCP) stdio server for Joplin, exposing Joplin's local REST API as MCP tools. Built with Python, uv, httpx, and FastMCP."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["fastmcp==2.8.0", "httpx==0.28.1"]
-license = { text = "MIT" }
+dependencies = ["fastmcp==2.8.1", "httpx==0.28.1"]
+license = "MIT"
 authors = [
     { name = "Zeyang Lin", email = "4020306+linzeyang@users.noreply.github.com" },
 ]
 keywords = ["joplin", "mcp", "server", "rest api", "notes", "python"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Development Status :: 3 - Alpha",
 ]
 
 [project.urls]
 Homepage = "https://github.com/linzeyang/joplin-mcp-server"
 Documentation = "https://github.com/linzeyang/joplin-mcp-server#readme"
+
+[project.scripts]
+joplin-mcp-server = "joplin_mcp_server.entry:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [tool.uv]
 # Add uv-specific configuration here if needed
