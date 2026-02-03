@@ -1,9 +1,9 @@
 [project]
 name = "joplin-mcp-server"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Model Context Protocol (MCP) stdio server for Joplin, exposing Joplin's local REST API as MCP tools. Built with Python, uv, httpx, and FastMCP."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12,<3.15"
 dependencies = ["fastmcp<3", "httpx<1"]
 license = "MIT"
 authors = [
@@ -12,10 +12,9 @@ authors = [
 keywords = ["joplin", "mcp", "server", "rest api", "notes", "python"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Operating System :: POSIX :: Linux",
     "Operating System :: MacOS",
     "Operating System :: Microsoft :: Windows",
@@ -23,6 +22,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Application Frameworks",
     "Development Status :: 3 - Alpha",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.0,<10"]
 
 [project.urls]
 Homepage = "https://github.com/linzeyang/joplin-mcp-server"
@@ -50,7 +52,7 @@ profile = "black"
 max-line-length = "88"
 
 [tool.pytest.ini_options]
-minversion = "8.0"
+minversion = "9.0"
 testpaths = ["./tests/"]
 python_files = ["test_*.py"]
 console_output_style = "count"
