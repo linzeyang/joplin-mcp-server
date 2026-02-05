@@ -12,7 +12,7 @@ from .joplin_client import JoplinClient
 mcp = FastMCP(name="Joplin MCP Server")
 
 # Get token from environment variable for security
-JOPLIN_TOKEN = os.environ.get("JOPLIN_TOKEN", "")
+JOPLIN_TOKEN: str = os.environ.get("JOPLIN_TOKEN", "")
 joplin = JoplinClient(base_url="http://localhost:41184", token=JOPLIN_TOKEN)
 
 
@@ -23,7 +23,7 @@ async def list_folders() -> dict:
     return await joplin.get_folders()
 
 
-def main():
+def main() -> None:
     mcp.run()
 
 

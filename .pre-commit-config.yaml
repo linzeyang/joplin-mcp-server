@@ -21,7 +21,7 @@ repos:
     hooks:
       - id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.14
+    rev: v0.15.0
     hooks:
       - id: ruff-check
         args: ["--fix", "--config=./pyproject.toml"]
@@ -31,7 +31,19 @@ repos:
     rev: 26.1.0
     hooks:
       - id: black
+  - repo: https://github.com/facebook/pyrefly-pre-commit
+    rev: 0.51.0
+    hooks:
+      - id: pyrefly-check
+        name: Pyrefly (type checking)
+        pass_filenames: true
   - repo: https://github.com/PyCQA/isort
     rev: 7.0.0
     hooks:
       - id: isort
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.9.30
+    hooks:
+      - id: uv-lock
+      - id: uv-export
+        args: ["--extra", "dev", "--format", "pylock.toml", "-o", "pylock.toml"]
