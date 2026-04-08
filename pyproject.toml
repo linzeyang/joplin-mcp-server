@@ -4,7 +4,7 @@ version = "0.1.3"
 description = "A Model Context Protocol (MCP) stdio server for Joplin, exposing Joplin's local REST API as MCP tools. Built with Python, uv, httpx, and FastMCP."
 readme = "README.md"
 requires-python = ">=3.12,<3.15"
-dependencies = ["fastmcp<3", "httpx<1"]
+dependencies = ["fastmcp<4", "httpx<1"]
 license = "MIT"
 authors = [
     { name = "Zeyang Lin", email = "4020306+linzeyang@users.noreply.github.com" },
